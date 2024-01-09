@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ExamenFlores3.Areas.Admin.Models.IndexViewModel>
+@{
+    Layout = "AdminLayout";
+}
+
+<div id="center">
+    <div id="content2">
+        <h2 class="titulo">LISTA DE FLORES</h2>
+
+        <a class="btn" href="~/admin/flores/agregar">
+            Agregar flor
+        </a>
+
+        <div class="entrada">
+
+            <table id="tablaFlores" style="width: 100%;">
+                <tr style="background: pink;">
+
+                    <th>Flor</th>
+                    <th style="width:40%">Acción</th>
+                </tr>
+
+              @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="~/images/@(item.Id).jpg" />
+                            @item.Nombre
+                        </td>
+                        <td>
+                            <a href="~/admin/flores/editar/@item.Id">Editar</a>
+                            <a href="~/admin/flores/eliminar/@item.Id">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+           
+            
+            </table>
+        </div>
+    </div>
+</div>

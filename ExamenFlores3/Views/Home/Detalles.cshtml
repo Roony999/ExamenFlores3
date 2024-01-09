@@ -1,0 +1,39 @@
+﻿@model ExamenFlores3.Models.ViewModels.DetallesViewModel
+@{
+Layout = "Layout";
+}
+
+<div id="center">
+    <div id="content">
+        <div class="post">
+            <h2 class="titulo">@Model.Nombre</h2>
+            <div class="entrada">
+                <h4>Procedencia:</h4>
+                <p>@Model.Origen</p>
+                <h4>Información:</h4>
+                <p>
+                @Model.Descripcion
+                </p>
+
+                <div id="imagenes">
+                    <img title="@Model.Nombre" src="~/images/@(Model.Id).jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sidebar">
+        <ul>
+            <li>
+                <h2>Menú</h2>
+
+                <ul>
+                    @foreach (var detalles in Model.Flores)
+                    {
+                    <li><a href='~/detalles/@detalles.Nombre.Replace(" ", "-")'>@detalles.Nombre</a></li>
+                        
+                    }
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+﻿@model ExamenFlores3.Areas.Admin.Models.EliminarViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+Layout = "AdminLayout";
+}
+<div id="center">
+    <div id="content">
+        <form action="~/admin/flores/eliminar" method="post">
+            <h2 class="titulo">Eliminar una flor</h2>
+            <br />
+            <div class="entrada">
+				<input type="hidden" asp-for="Id"/>
+                <label>Nombre: </label><input type="text" readonly asp-for="Nombre" /><br />
+
+                <input type="submit" value="Si" />
+                <a href="~/admin"><input type="button" value="No" /></a>
+                <div class="errores">
+                    @Html.ValidationSummary(true)
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
